@@ -1,8 +1,10 @@
-package com.knyghenko.deutschvonwiedergabelisten;
+package com.knyghenko.deutschvonwiedergabelisten.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.knyghenko.deutschvonwiedergabelisten.R;
 
 public class MainActivity extends AppCompatActivity {
 
