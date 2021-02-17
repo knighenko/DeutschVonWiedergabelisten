@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-    android:background="?colorPrimary"
-    tools:context=".activities.MainActivity">
+    android:background="?attr/colorPrimary"
+    tools:context=".activities.MainActivity"
+  >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/vinegar"
+        android:background="@drawable/flag"
         android:fontFamily="cursive"
         android:paddingVertical="70dp"
         android:textColor="#000"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:text="Логин:"
-        android:textColor="@color/purple_700" />
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/edit_text_e_mail"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:text="Пароль:"
-        android:textColor="@color/purple_700" />
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/edit_text_password"
@@ -56,14 +56,16 @@
         android:layout_height="wrap_content"
         android:onClick="btnEnter"
         android:text="Вход"
-        android:background="@drawable/button_bg"
+        android:textColor="@color/black"
+        android:background="@drawable/button_enter"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="20dp"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="createUser"
         android:text="Создать аккаунт, регистрация."
         android:textAlignment="center"
-        android:textColor="@color/purple_700"/>
+        android:textColor="@color/black"/>
 </LinearLayout>
