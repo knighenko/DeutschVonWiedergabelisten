@@ -1,7 +1,9 @@
 package com.knyghenko.deutschvonwiedergabelisten.model;
 
 
-import com.knighenko.sweetvinegar.entity.Constants;
+
+
+import com.knyghenko.deutschvonwiedergabelisten.entity.Constants;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
