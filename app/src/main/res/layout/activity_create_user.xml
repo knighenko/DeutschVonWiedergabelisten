@@ -35,7 +35,7 @@
         android:textColor="@color/black" />
 
     <EditText
-        android:id="@+id/edit_text_e_mail"
+        android:id="@+id/edit_text_e_mail_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -51,7 +51,7 @@
 
     <EditText
 
-        android:id="@+id/edit_text_password"
+        android:id="@+id/edit_text_password_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLength="30"
@@ -64,17 +64,11 @@
         android:background="@drawable/button_enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="btnEnter"
-        android:text="Вход"
+        android:onClick="btnCreate"
+        android:text="Создать"
         android:textColor="@color/black"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="createUser"
-        android:text="Создать аккаунт, регистрация."
-        android:textAlignment="center"
-        android:textColor="@color/black"/>
+
 </LinearLayout>
