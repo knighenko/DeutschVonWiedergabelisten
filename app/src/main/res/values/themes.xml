@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.DeutschVonWiedergabelisten" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#F7FADB</item>
+        <item name="colorPrimary">#F6A314</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/design_default_color_surface</item>
         <!-- Secondary brand color. -->

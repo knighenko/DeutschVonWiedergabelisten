@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.knyghenko.deutschvonwiedergabelisten.R;
 
-public class Lesson extends AppCompatActivity {
+public class LessonActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

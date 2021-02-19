@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/lessons"
+        android:title="Видеоуроки" />
+    <item
+        android:id="@+id/tasks"
+        android:title="Задания" />
+    <item
+        android:id="@+id/my_progress"
+        android:title="Мой прогресс" />
+</menu>

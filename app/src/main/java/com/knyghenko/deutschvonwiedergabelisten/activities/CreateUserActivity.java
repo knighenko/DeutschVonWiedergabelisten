@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.knyghenko.deutschvonwiedergabelisten.R;
 
-public class Task extends AppCompatActivity {
+public class CreateUserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task);
+        setContentView(R.layout.activity_create_user);
     }
 }
