@@ -9,4 +9,7 @@
     <item
         android:id="@+id/my_progress"
         android:title="Мой прогресс" />
+    <item
+        android:id="@+id/exit"
+        android:title="Выйти из аккаунта" />
 </menu>

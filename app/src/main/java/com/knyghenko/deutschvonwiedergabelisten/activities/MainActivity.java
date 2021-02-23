@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.knyghenko.deutschvonwiedergabelisten.R;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
+import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,10 +41,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.lessons) {
-            String urlsYouTube= ConnectServer.connectToServerSearch("2:" + "lessons");
+            String urlsYouTube = ConnectServer.connectToServerSearch("2:" + "lessons");
             System.out.println(urlsYouTube);
             Intent intent = new Intent(this, LessonsActivity.class);
             intent.putExtra("urlsYouTube", urlsYouTube);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.exit) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            SaveSharedPreference.clearUserName(getApplicationContext());
             startActivity(intent);
         }
         return true;
