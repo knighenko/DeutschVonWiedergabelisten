@@ -11,7 +11,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="170dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/flag"
         android:fontFamily="cursive"
@@ -32,6 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="30dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/colorSecondary"
         android:inputType="textPersonName"/>
 
     <TextView
@@ -49,6 +51,8 @@
         android:maxLength="30"
         android:maxLines="1"
         android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/colorSecondary"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="30dp" />
 
