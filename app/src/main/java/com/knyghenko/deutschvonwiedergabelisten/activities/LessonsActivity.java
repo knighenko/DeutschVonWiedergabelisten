@@ -3,6 +3,8 @@ package com.knyghenko.deutschvonwiedergabelisten.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
 import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 
 public class LessonsActivity extends AppCompatActivity {
+    private RecyclerView lessons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,8 @@ public class LessonsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lessons);
         Toolbar toolbar = findViewById(R.id.toolbar_lessons);
         setSupportActionBar(toolbar);
+        lessons = findViewById(R.id.lessons_recycler_view);
+        lessons.setLayoutManager(new LinearLayoutManager(this));
     }
 
     /**

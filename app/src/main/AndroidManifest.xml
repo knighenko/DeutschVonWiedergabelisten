@@ -15,7 +15,9 @@
         <activity android:name=".activities.MainActivity"></activity>
         <activity android:name=".activities.CreateUserActivity" />
         <activity android:name=".activities.TaskActivity" />
-        <activity android:name=".activities.LessonsActivity" />
+        <activity
+            android:name=".activities.LessonsActivity"
+            android:label="@string/lessons" />
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

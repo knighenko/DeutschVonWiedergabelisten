@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.lessons) {
             String urlsYouTube = ConnectServer.connectToServerSearch("2:" + "lessons");
-            System.out.println(urlsYouTube);
             Intent intent = new Intent(this, LessonsActivity.class);
             intent.putExtra("urlsYouTube", urlsYouTube);
             startActivity(intent);
