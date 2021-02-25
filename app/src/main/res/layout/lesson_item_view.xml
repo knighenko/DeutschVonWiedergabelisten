@@ -12,7 +12,7 @@
     android:layout_margin="3dp"
     >
     <ImageView
-        android:id="@+id/imageLeson"
+        android:id="@+id/imageLesson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/lesson"
@@ -20,7 +20,7 @@
         />
 
     <TextView
-        android:id="@+id/lessonTextView"
+        android:id="@+id/lessonTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

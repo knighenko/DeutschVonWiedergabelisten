@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -13,11 +14,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.knyghenko.deutschvonwiedergabelisten.R;
+import com.knyghenko.deutschvonwiedergabelisten.adapter.LessonAdapter;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
 import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 
+import java.util.List;
+
 public class LessonsActivity extends AppCompatActivity {
     private RecyclerView lessons;
+    private List<String> lessonsList;
+    private LessonAdapter lessonAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,7 @@ public class LessonsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_lessons);
         setSupportActionBar(toolbar);
         lessons = findViewById(R.id.lessons_recycler_view);
+        lessons.setHasFixedSize(true);
         lessons.setLayoutManager(new LinearLayoutManager(this));
     }
 
