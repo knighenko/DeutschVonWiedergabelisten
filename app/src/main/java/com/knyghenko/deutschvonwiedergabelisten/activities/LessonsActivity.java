@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import com.knyghenko.deutschvonwiedergabelisten.R;
 import com.knyghenko.deutschvonwiedergabelisten.adapter.LessonAdapter;
+import com.knyghenko.deutschvonwiedergabelisten.entity.JsonToList;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
 import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 
@@ -34,6 +35,7 @@ public class LessonsActivity extends AppCompatActivity {
         lessons = findViewById(R.id.lessons_recycler_view);
         lessons.setHasFixedSize(true);
         lessons.setLayoutManager(new LinearLayoutManager(this));
+        JsonToList.getListLessons(getIntent().getStringExtra("urlsLessons"));
     }
 
     /**

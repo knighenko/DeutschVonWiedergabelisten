@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.lessons) {
-            String urlsYouTube = ConnectServer.connectToServerSearch("2:" + "lessons");
+            String urlsLessons = ConnectServer.connectToServerSearch("2:" + "lessons");
             Intent intent = new Intent(this, LessonsActivity.class);
-            intent.putExtra("urlsYouTube", urlsYouTube);
+            intent.putExtra("urlsLessons", urlsLessons);
             startActivity(intent);
         } else if (item.getItemId() == R.id.exit) {
             Intent intent = new Intent(this, LoginActivity.class);
