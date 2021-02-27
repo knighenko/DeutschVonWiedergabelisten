@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -22,7 +21,7 @@ import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 import java.util.List;
 
 public class LessonsActivity extends AppCompatActivity {
-    private RecyclerView lessons;
+    private RecyclerView recyclerViewLessons;
     private List<String> lessonsList;
     private LessonAdapter lessonAdapter;
 
@@ -32,10 +31,14 @@ public class LessonsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lessons);
         Toolbar toolbar = findViewById(R.id.toolbar_lessons);
         setSupportActionBar(toolbar);
-        lessons = findViewById(R.id.lessons_recycler_view);
-        lessons.setHasFixedSize(true);
-        lessons.setLayoutManager(new LinearLayoutManager(this));
-        JsonToList.getListLessons(getIntent().getStringExtra("urlsLessons"));
+        recyclerViewLessons = findViewById(R.id.lessons_recycler_view);
+        recyclerViewLessons.setHasFixedSize(true);
+        recyclerViewLessons.setLayoutManager(new LinearLayoutManager(this));
+        lessonsList=JsonToList.getListLessons(getIntent().getStringExtra("urlsLessons"));
+        lessonAdapter=new LessonAdapter();
+        lessonAdapter.setListLessons(lessonsList);
+        recyclerViewLessons.setAdapter(lessonAdapter);
+
     }
 
     /**

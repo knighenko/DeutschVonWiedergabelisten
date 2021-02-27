@@ -22,7 +22,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lesson_item_view, parent);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lesson_item_view,parent,false);
         return new ViewHolder(view);
     }
 
@@ -35,6 +35,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
     public int getItemCount() {
         return lessons.size();
     }
+
     public void setListLessons(Collection<String> lessons) {
         this.lessons.addAll(lessons);
         notifyDataSetChanged();
@@ -54,7 +55,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
 
         public void bind(String title) {
             titleLesson.setText(title);
-            titleLesson.setPaintFlags(titleLesson.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+          //  titleLesson.setPaintFlags(titleLesson.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             imageViewLesson.setImageResource(R.drawable.lesson);
         }
     }
