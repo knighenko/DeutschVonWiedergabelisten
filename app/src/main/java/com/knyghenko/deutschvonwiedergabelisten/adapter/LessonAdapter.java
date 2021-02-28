@@ -18,6 +18,12 @@ import java.util.List;
 
 public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder> {
     private final List<String> lessons = new ArrayList<String>();
+    private OnLessonClickListener onLessonClickListener;
+
+
+   public LessonAdapter(OnLessonClickListener onLessonClickListener){
+       this.onLessonClickListener=onLessonClickListener;
+   }
 
     @NonNull
     @Override
@@ -57,6 +63,13 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
             titleLesson.setText(title);
             //  titleLesson.setPaintFlags(titleLesson.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             imageViewLesson.setImageResource(R.drawable.lesson);
+            imageViewLesson.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String url=lessons.get(getLayoutPosition());
+                    onLessonClickListener.onLessonClick(url);
+                }
+            });
         }
     }
 

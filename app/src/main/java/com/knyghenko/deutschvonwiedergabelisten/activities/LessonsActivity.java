@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,7 +36,16 @@ public class LessonsActivity extends AppCompatActivity {
         recyclerViewLessons.setHasFixedSize(true);
         recyclerViewLessons.setLayoutManager(new LinearLayoutManager(this));
         lessonsList=JsonToList.getListLessons(getIntent().getStringExtra("urlsLessons"));
-        lessonAdapter=new LessonAdapter();
+       LessonAdapter.OnLessonClickListener onLessonClickListener=new LessonAdapter.OnLessonClickListener() {
+           @Override
+           public void onLessonClick(String url) {
+               Intent intent = new Intent(Intent.ACTION_VIEW);
+               intent.setData(Uri.parse(url));
+               startActivity(intent);
+           }
+       };
+
+        lessonAdapter=new LessonAdapter(onLessonClickListener);
         lessonAdapter.setListLessons(lessonsList);
         recyclerViewLessons.setAdapter(lessonAdapter);
 
