@@ -17,12 +17,12 @@ import java.util.Collection;
 import java.util.List;
 
 public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder> {
-    private List<String> lessons = new ArrayList<String>();
+    private final List<String> lessons = new ArrayList<String>();
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lesson_item_view,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lesson_item_view, parent, false);
         return new ViewHolder(view);
     }
 
@@ -44,8 +44,8 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView titleLesson;
-        private ImageView imageViewLesson;
+        private final TextView titleLesson;
+        private final ImageView imageViewLesson;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,8 +55,12 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
 
         public void bind(String title) {
             titleLesson.setText(title);
-          //  titleLesson.setPaintFlags(titleLesson.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            //  titleLesson.setPaintFlags(titleLesson.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             imageViewLesson.setImageResource(R.drawable.lesson);
         }
+    }
+
+    public interface OnLessonClickListener {
+        void onLessonClick(String url);
     }
 }
