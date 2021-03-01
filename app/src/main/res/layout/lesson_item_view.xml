@@ -7,9 +7,9 @@
     android:layout_height="wrap_content"
     android:background="@color/orange">
 <FrameLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2dp"
     >
     <ImageView
         android:id="@+id/imageLesson"
@@ -26,6 +26,23 @@
         android:text="TextView"
         android:layout_gravity="center"
         />
+
+    <ImageView
+        android:id="@+id/imageDownload"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom|left"
+        android:layout_marginLeft="8dp"
+        app:srcCompat="@drawable/download" />
+
+
+    <ImageView
+        android:id="@+id/imageTask"
+        android:layout_width="60dp"
+        android:layout_height="21dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="9dp"
+        app:srcCompat="@drawable/you_tube_logo" />
 
 </FrameLayout>
 
