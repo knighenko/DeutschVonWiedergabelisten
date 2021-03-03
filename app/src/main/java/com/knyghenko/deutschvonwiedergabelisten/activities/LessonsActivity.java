@@ -9,21 +9,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.knyghenko.deutschvonwiedergabelisten.R;
 import com.knyghenko.deutschvonwiedergabelisten.adapter.LessonAdapter;
-import com.knyghenko.deutschvonwiedergabelisten.entity.JsonToList;
+import com.knyghenko.deutschvonwiedergabelisten.entity.JsonToLessonsList;
+import com.knyghenko.deutschvonwiedergabelisten.entity.Lesson;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
+import com.knyghenko.deutschvonwiedergabelisten.model.ConnectToDownloadServer;
 import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class LessonsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewLessons;
-    private List<String> lessonsList;
+    private List<Lesson> lessonsList;
     private LessonAdapter lessonAdapter;
 
     @Override
@@ -35,21 +42,30 @@ public class LessonsActivity extends AppCompatActivity {
         recyclerViewLessons = findViewById(R.id.lessons_recycler_view);
         recyclerViewLessons.setHasFixedSize(true);
         recyclerViewLessons.setLayoutManager(new LinearLayoutManager(this));
-        lessonsList=JsonToList.getListLessons(getIntent().getStringExtra("urlsLessons"));
-       LessonAdapter.OnLessonClickListener onLessonClickListener=new LessonAdapter.OnLessonClickListener() {
-           @Override
-           public void onLessonClick(String url) {
-               Intent intent = new Intent(Intent.ACTION_VIEW);
-               intent.setData(Uri.parse(url));
-               startActivity(intent);
-           }
-       };
+        lessonsList = JsonToLessonsList.getListLessons(getIntent().getStringExtra("lessons"));
+        LessonAdapter.OnLessonClickListener onLessonClickListener = new LessonAdapter.OnLessonClickListener() {
+            @Override
+            public void onAdvClick(Lesson lesson) {
+                try {
 
-        lessonAdapter=new LessonAdapter(onLessonClickListener);
+                    File file = new File(Environment.getExternalStoragePublicDirectory(
+                            Environment.DIRECTORY_DOWNLOADS)+"/"+1 + ".mkv");
+                    FileOutputStream fileOutputStream = openFileOutput(file.getName(),MODE_PRIVATE);
+                    ConnectToDownloadServer.connectToServerSearch(fileOutputStream, lesson.getServerUrl());
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        lessonAdapter = new LessonAdapter(onLessonClickListener);
         lessonAdapter.setListLessons(lessonsList);
         recyclerViewLessons.setAdapter(lessonAdapter);
 
     }
+
 
     /**
      * Method create menu
@@ -68,10 +84,9 @@ public class LessonsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.lessons) {
-            String urlsYouTube = ConnectServer.connectToServerSearch("2:" + "lessons");
-            System.out.println(urlsYouTube);
+            String lessons = ConnectServer.connectToServerSearch("2:" + "lessons");
             Intent intent = new Intent(this, LessonsActivity.class);
-            intent.putExtra("urlsYouTube", urlsYouTube);
+            intent.putExtra("lessons", lessons);
             startActivity(intent);
         } else if (item.getItemId() == R.id.exit) {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -80,4 +95,6 @@ public class LessonsActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
 }

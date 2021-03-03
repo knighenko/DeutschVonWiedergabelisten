@@ -33,11 +33,11 @@
         android:layout_height="40dp"
         android:layout_gravity="bottom|left"
         android:layout_marginLeft="8dp"
-        app:srcCompat="@drawable/download" />
+       />
 
 
     <ImageView
-        android:id="@+id/imageTask"
+        android:id="@+id/imageYouTube"
         android:layout_width="60dp"
         android:layout_height="21dp"
         android:layout_gravity="bottom|right"

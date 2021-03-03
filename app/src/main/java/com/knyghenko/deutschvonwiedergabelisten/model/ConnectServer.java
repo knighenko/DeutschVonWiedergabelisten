@@ -19,7 +19,7 @@ public class ConnectServer {
         socket = new Socket(host, port);
     }
     /**Метод для соединения с сервером, возвращает строку
-     * @param request - адрес URL*/
+     * @param request - запрос*/
 
     public String readResponse(String request) throws IOException {
         outputStream = new DataOutputStream(socket.getOutputStream());

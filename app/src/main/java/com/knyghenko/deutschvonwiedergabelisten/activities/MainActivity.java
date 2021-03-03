@@ -14,6 +14,8 @@ import com.knyghenko.deutschvonwiedergabelisten.R;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
 import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 
+import java.io.FileOutputStream;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
     }
 
     /**
@@ -41,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.lessons) {
-            String urlsLessons = ConnectServer.connectToServerSearch("2:" + "lessons");
+            String lessons = ConnectServer.connectToServerSearch("2:" + "lessons");
             Intent intent = new Intent(this, LessonsActivity.class);
-            intent.putExtra("urlsLessons", urlsLessons);
+            intent.putExtra("lessons", lessons);
             startActivity(intent);
         } else if (item.getItemId() == R.id.exit) {
             Intent intent = new Intent(this, LoginActivity.class);
