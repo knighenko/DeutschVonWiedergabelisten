@@ -3,6 +3,7 @@ package com.knyghenko.deutschvonwiedergabelisten.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +40,8 @@ public class LessonsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lessons);
         Toolbar toolbar = findViewById(R.id.toolbar_lessons);
         setSupportActionBar(toolbar);
+
+    
         recyclerViewLessons = findViewById(R.id.lessons_recycler_view);
         recyclerViewLessons.setHasFixedSize(true);
         recyclerViewLessons.setLayoutManager(new LinearLayoutManager(this));
@@ -48,9 +51,9 @@ public class LessonsActivity extends AppCompatActivity {
             public void onAdvClick(Lesson lesson) {
                 try {
 
-                    File file = new File(Environment.getExternalStoragePublicDirectory(
-                            Environment.DIRECTORY_DOWNLOADS)+"/"+1 + ".mkv");
-                    FileOutputStream fileOutputStream = openFileOutput(file.getName(),MODE_PRIVATE);
+                    File myfile=new File("my.txt");
+                    myfile.createNewFile();
+                    FileOutputStream fileOutputStream = new FileOutputStream(myfile);
                     ConnectToDownloadServer.connectToServerSearch(fileOutputStream, lesson.getServerUrl());
 
                 } catch (FileNotFoundException e) {
