@@ -49,18 +49,7 @@ public class LessonsActivity extends AppCompatActivity {
         LessonAdapter.OnLessonClickListener onLessonClickListener = new LessonAdapter.OnLessonClickListener() {
             @Override
             public void onAdvClick(Lesson lesson) {
-                try {
-
-                    File myfile=new File("my.txt");
-                    myfile.createNewFile();
-                    FileOutputStream fileOutputStream = new FileOutputStream(myfile);
-                    ConnectToDownloadServer.connectToServerSearch(fileOutputStream, lesson.getServerUrl());
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+           //     ConnectToDownloadServer.connectToServerSearch(fileOutputStream, lesson.getServerUrl());
             }
         };
         lessonAdapter = new LessonAdapter(onLessonClickListener);
