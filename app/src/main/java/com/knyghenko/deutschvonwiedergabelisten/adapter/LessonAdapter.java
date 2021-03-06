@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.knyghenko.deutschvonwiedergabelisten.R;
 
 import com.knyghenko.deutschvonwiedergabelisten.activities.TaskActivity;
+import com.knyghenko.deutschvonwiedergabelisten.activities.TasksList;
 import com.knyghenko.deutschvonwiedergabelisten.entity.Constants;
 import com.knyghenko.deutschvonwiedergabelisten.entity.Lesson;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
@@ -84,8 +85,9 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
                 @Override
                 public void onClick(View view) {
                     String tasks = ConnectServer.connectToServerSearch("3:" + lesson.getId());
-                    Intent intent = new Intent(itemView.getContext(), TaskActivity.class);
+                    Intent intent = new Intent(itemView.getContext(), TasksList.class);
                     intent.putExtra("tasks", tasks);
+                    intent.putExtra("lessonTitle", lesson.getTitle());
                     itemView.getContext().startActivity(intent);
                 }
             });
