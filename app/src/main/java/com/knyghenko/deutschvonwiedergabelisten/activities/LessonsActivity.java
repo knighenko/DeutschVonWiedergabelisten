@@ -3,14 +3,14 @@ package com.knyghenko.deutschvonwiedergabelisten.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.net.Uri;
+
 import android.os.Bundle;
-import android.os.Environment;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,13 +20,9 @@ import com.knyghenko.deutschvonwiedergabelisten.adapter.LessonAdapter;
 import com.knyghenko.deutschvonwiedergabelisten.entity.JsonToLessonsList;
 import com.knyghenko.deutschvonwiedergabelisten.entity.Lesson;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
-import com.knyghenko.deutschvonwiedergabelisten.model.ConnectToDownloadServer;
+
 import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 public class LessonsActivity extends AppCompatActivity {

@@ -44,4 +44,13 @@
         app:layout_constraintTop_toBottomOf="@id/editTextMyAnswer"
         app:layout_constraintRight_toRightOf="parent"
        />
+    <TextView
+        android:id="@+id/textView_line"
+        app:layout_constraintTop_toBottomOf="@id/buttonSubmit"
+        app:layout_constraintLeft_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"
+
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
