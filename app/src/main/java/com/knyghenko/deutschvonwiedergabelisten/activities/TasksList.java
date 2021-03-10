@@ -24,5 +24,7 @@ public class TasksList extends AppCompatActivity {
         toolbar.setTitle( getIntent().getStringExtra("lessonTitle")+" Задания.");
         setSupportActionBar(toolbar);
 
+        recyclerViewTasks=findViewById(R.id.tasks_list_recycler_view);
+
     }
 }
