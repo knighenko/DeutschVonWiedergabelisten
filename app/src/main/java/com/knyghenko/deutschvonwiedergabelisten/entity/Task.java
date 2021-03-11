@@ -19,5 +19,13 @@ public class Task {
     public void setDeu(String deu) {
         this.deu = deu;
     }
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder=new StringBuilder("{");
+
+        stringBuilder.append("\"rus\":\"").append(rus).append('\"').append(", \"deu\":\"").append(deu).append('\"').append("}");
+
+        return stringBuilder.toString();
+    }
 
 }
