@@ -3,6 +3,7 @@ package com.knyghenko.deutschvonwiedergabelisten.adapter;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,13 +21,20 @@ import com.knyghenko.deutschvonwiedergabelisten.activities.TasksList;
 import com.knyghenko.deutschvonwiedergabelisten.entity.Lesson;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
 
-public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> {
+    private final Map<String,String> tasks = new HashMap<String, String>();
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_task, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -57,12 +65,13 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
 
 
         public void bind(String task, String answer) {
+
             textViewTask.setText(task);
           buttonSubmit.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
                   String myAnswer=textViewAnswer.getText().toString();
-                  if myAnswer.equals(answer){
+                  if (myAnswer.equals(answer)){
                      imageCheck
                              .setVisibility(View.VISIBLE);
                   }
