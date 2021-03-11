@@ -19,15 +19,17 @@ import com.knyghenko.deutschvonwiedergabelisten.R;
 import com.knyghenko.deutschvonwiedergabelisten.activities.TaskActivity;
 import com.knyghenko.deutschvonwiedergabelisten.activities.TasksList;
 import com.knyghenko.deutschvonwiedergabelisten.entity.Lesson;
+import com.knyghenko.deutschvonwiedergabelisten.entity.Task;
 import com.knyghenko.deutschvonwiedergabelisten.model.ConnectServer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> {
-    private final Map<String,String> tasks = new HashMap<String, String>();
+    private final List<Task> tasks = new ArrayList<Task>();
 
     @NonNull
     @Override
@@ -39,12 +41,19 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        holder.bind(tasks.get(position).getRus(),tasks.get(position).getDeu());
     }
+
 
     @Override
     public int getItemCount() {
-        return 0;
+        return tasks.size();
+
+    }
+
+    public void setListTasks(Collection<Task> tasks) {
+        this.tasks.addAll(tasks);
+        notifyDataSetChanged();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -60,23 +69,23 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
             textViewAnswer = (EditText) itemView.findViewById(R.id.editTextMyAnswer);
             buttonSubmit = (Button) itemView.findViewById(R.id.buttonSubmit);
             buttonHelp = (Button) itemView.findViewById(R.id.buttonHelp);
-            imageCheck=(ImageView)itemView.findViewById(R.id.imageCheck);
+            imageCheck = (ImageView) itemView.findViewById(R.id.imageCheck);
         }
 
 
         public void bind(String task, String answer) {
 
             textViewTask.setText(task);
-          buttonSubmit.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                  String myAnswer=textViewAnswer.getText().toString();
-                  if (myAnswer.equals(answer)){
-                     imageCheck
-                             .setVisibility(View.VISIBLE);
-                  }
-              }
-          });
+            buttonSubmit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String myAnswer = textViewAnswer.getText().toString();
+                    if (myAnswer.equals(answer)) {
+                        imageCheck
+                                .setVisibility(View.VISIBLE);
+                    }
+                }
+            });
 
 
         }
