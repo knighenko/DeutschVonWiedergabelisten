@@ -29,7 +29,7 @@ public class TasksList extends AppCompatActivity {
         setSupportActionBar(toolbar);
         taskList = JsonToTasksList.getListLessons(getIntent().getStringExtra("tasks"));
         recyclerViewTasks = findViewById(R.id.tasks_list_recycler_view);
-        recyclerViewTasks.setHasFixedSize(true);
+        recyclerViewTasks.setHasFixedSize(false);
         recyclerViewTasks.setLayoutManager(new LinearLayoutManager(this));
         TasksAdapter tasksAdapter=new TasksAdapter();
         tasksAdapter.setListTasks(taskList);

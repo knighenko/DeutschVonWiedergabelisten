@@ -48,7 +48,7 @@ public class LessonsActivity extends AppCompatActivity {
            //     ConnectToDownloadServer.connectToServerSearch(fileOutputStream, lesson.getServerUrl());
             }
         };
-        lessonAdapter = new LessonAdapter(onLessonClickListener);
+        lessonAdapter = new LessonAdapter(onLessonClickListener,getIntent().getStringExtra("e_mail"));
         lessonAdapter.setListLessons(lessonsList);
         recyclerViewLessons.setAdapter(lessonAdapter);
 

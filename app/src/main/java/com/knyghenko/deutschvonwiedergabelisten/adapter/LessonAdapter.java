@@ -34,9 +34,11 @@ import static androidx.core.content.ContextCompat.startActivity;
 public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder> {
     private final List<Lesson> lessons = new ArrayList<Lesson>();
     private OnLessonClickListener onLessonClickListener;
+    private  String e_mail;
 
-    public LessonAdapter(OnLessonClickListener onLessonClickListener) {
+    public LessonAdapter(OnLessonClickListener onLessonClickListener, String e_mail) {
         this.onLessonClickListener = onLessonClickListener;
+        this.e_mail=e_mail;
     }
 
     @NonNull
@@ -84,7 +86,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
             imageViewLesson.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String tasks = ConnectServer.connectToServerSearch("3:" + lesson.getId());
+                    String tasks = ConnectServer.connectToServerSearch("3:" + lesson.getId()+":"+e_mail);
                     Intent intent = new Intent(itemView.getContext(), TasksList.class);
                     intent.putExtra("tasks", tasks);
                     intent.putExtra("lessonTitle", lesson.getTitle());

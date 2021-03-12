@@ -17,6 +17,7 @@ import com.knyghenko.deutschvonwiedergabelisten.model.SaveSharedPreference;
 import java.io.FileOutputStream;
 
 public class MainActivity extends AppCompatActivity {
+    private String e_mail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        e_mail = getIntent().getStringExtra("e_mail");
 
     }
 
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             String lessons = ConnectServer.connectToServerSearch("2:" + "lessons");
             Intent intent = new Intent(this, LessonsActivity.class);
             intent.putExtra("lessons", lessons);
+            intent.putExtra("e_mail", e_mail);
             startActivity(intent);
         } else if (item.getItemId() == R.id.exit) {
             Intent intent = new Intent(this, LoginActivity.class);

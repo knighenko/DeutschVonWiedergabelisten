@@ -41,7 +41,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bind(tasks.get(position).getRus(),tasks.get(position).getDeu());
+        holder.bind(tasks.get(holder.getAdapterPosition()));
     }
 
 
@@ -73,17 +73,40 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
         }
 
 
-        public void bind(String task, String answer) {
+        public void bind(Task task) {
 
-            textViewTask.setText(task);
+            textViewTask.setText(task.getRus());
+            textViewAnswer.setText("");
+            buttonHelp.setVisibility(View.INVISIBLE);
+            imageCheck
+                    .setVisibility(View.INVISIBLE);
             buttonSubmit.setOnClickListener(new View.OnClickListener() {
+                int count = 0;
+
                 @Override
                 public void onClick(View view) {
+                    count++;
                     String myAnswer = textViewAnswer.getText().toString();
-                    if (myAnswer.equals(answer)) {
+                    if (count > 2) {
+                        buttonHelp.setVisibility(View.VISIBLE);
+                        count = 0;
+                    }                    ;
+                    if (myAnswer.equals(task.getDeu())) {
                         imageCheck
                                 .setVisibility(View.VISIBLE);
+                        count=0;
+                        buttonHelp.setVisibility(View.INVISIBLE);
+                    } else {
+                        imageCheck
+                                .setVisibility(View.INVISIBLE);
                     }
+
+                }
+            });
+            buttonHelp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textViewAnswer.setText(task.getDeu());
                 }
             });
 
