@@ -37,7 +37,7 @@ public class LessonsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_lessons);
         setSupportActionBar(toolbar);
 
-    
+
         recyclerViewLessons = findViewById(R.id.lessons_recycler_view);
         recyclerViewLessons.setHasFixedSize(true);
         recyclerViewLessons.setLayoutManager(new LinearLayoutManager(this));
@@ -45,10 +45,10 @@ public class LessonsActivity extends AppCompatActivity {
         LessonAdapter.OnLessonClickListener onLessonClickListener = new LessonAdapter.OnLessonClickListener() {
             @Override
             public void onAdvClick(Lesson lesson) {
-           //     ConnectToDownloadServer.connectToServerSearch(fileOutputStream, lesson.getServerUrl());
+                //     ConnectToDownloadServer.connectToServerSearch(fileOutputStream, lesson.getServerUrl());
             }
         };
-        lessonAdapter = new LessonAdapter(onLessonClickListener,getIntent().getStringExtra("e_mail"));
+        lessonAdapter = new LessonAdapter(onLessonClickListener, getIntent().getStringExtra("e_mail"));
         lessonAdapter.setListLessons(lessonsList);
         recyclerViewLessons.setAdapter(lessonAdapter);
 
@@ -75,6 +75,7 @@ public class LessonsActivity extends AppCompatActivity {
             String lessons = ConnectServer.connectToServerSearch("2:" + "lessons");
             Intent intent = new Intent(this, LessonsActivity.class);
             intent.putExtra("lessons", lessons);
+            intent.putExtra("e_mail", getIntent().getStringExtra("e_mail"));
             startActivity(intent);
         } else if (item.getItemId() == R.id.exit) {
             Intent intent = new Intent(this, LoginActivity.class);
