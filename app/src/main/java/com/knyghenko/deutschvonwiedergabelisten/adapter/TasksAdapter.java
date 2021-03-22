@@ -78,10 +78,15 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
             textViewTask.setText(task.getRus());
             textViewAnswer.setText("");
             buttonHelp.setVisibility(View.INVISIBLE);
-            imageCheck
+            if (task.isChecks()) {
+                imageCheck
+                        .setVisibility(View.VISIBLE);
+            } else imageCheck
                     .setVisibility(View.INVISIBLE);
+
             buttonSubmit.setOnClickListener(new View.OnClickListener() {
                 int count = 0;
+
 
                 @Override
                 public void onClick(View view) {
@@ -90,11 +95,12 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
                     if (count > 2) {
                         buttonHelp.setVisibility(View.VISIBLE);
                         count = 0;
-                    }                    ;
+                    }
+                    ;
                     if (myAnswer.equals(task.getDeu())) {
                         imageCheck
                                 .setVisibility(View.VISIBLE);
-                        count=0;
+                        count = 0;
                         buttonHelp.setVisibility(View.INVISIBLE);
                     } else {
                         imageCheck
