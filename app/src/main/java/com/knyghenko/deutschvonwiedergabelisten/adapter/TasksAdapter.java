@@ -101,6 +101,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> 
                         imageCheck
                                 .setVisibility(View.VISIBLE);
                         count = 0;
+                        ConnectServer.connectToServerSearch("5:" + e_mail+":"+task.getId());
                         buttonHelp.setVisibility(View.INVISIBLE);
                     } else {
                         imageCheck
