@@ -89,6 +89,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.ViewHolder
                     String tasks = ConnectServer.connectToServerSearch("3:" + lesson.getId()+":"+e_mail);
                     Intent intent = new Intent(itemView.getContext(), TasksList.class);
                     intent.putExtra("tasks", tasks);
+                    intent.putExtra("e_mail", e_mail);
                     intent.putExtra("lessonTitle", lesson.getTitle());
                     itemView.getContext().startActivity(intent);
                 }

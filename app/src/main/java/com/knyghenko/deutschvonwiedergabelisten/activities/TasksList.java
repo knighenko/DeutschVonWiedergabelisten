@@ -18,6 +18,7 @@ import java.util.List;
 public class TasksList extends AppCompatActivity {
     private RecyclerView recyclerViewTasks;
     private List<Task> taskList;
+
     // private List<Lesson> lessonsList;
     //  private LessonAdapter lessonAdapter;
     @Override
@@ -27,11 +28,12 @@ public class TasksList extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_task_list);
         toolbar.setTitle(getIntent().getStringExtra("lessonTitle") + " Задания.");
         setSupportActionBar(toolbar);
+
         taskList = JsonToTasksList.getListLessons(getIntent().getStringExtra("tasks"));
         recyclerViewTasks = findViewById(R.id.tasks_list_recycler_view);
         recyclerViewTasks.setHasFixedSize(false);
         recyclerViewTasks.setLayoutManager(new LinearLayoutManager(this));
-        TasksAdapter tasksAdapter=new TasksAdapter();
+        TasksAdapter tasksAdapter=new TasksAdapter(getIntent().getStringExtra("e_mail"));
         tasksAdapter.setListTasks(taskList);
         recyclerViewTasks.setAdapter(tasksAdapter);
     }

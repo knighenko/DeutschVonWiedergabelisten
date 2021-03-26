@@ -30,6 +30,10 @@ import java.util.Map;
 
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ViewHolder> {
     private final List<Task> tasks = new ArrayList<Task>();
+    private String e_mail;
+    public TasksAdapter(String e_mail){
+        this.e_mail=e_mail;
+    }
 
     @NonNull
     @Override
